@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLI Strategies | Historical Research & Strategic Consulting</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #003153;
+            --secondary-color: #004a73;
+            --accent-color: #CC8814;
+            --text-dark: #2d3748;
+            --text-light: #4a5568;
+            --background-light: #f7fafc;
+            --background-white: #ffffff;
+            --border-color: #e2e8f0;
+            --success-color: #CC8814;
+            --light-ochre: #E6A318;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--background-white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: #f7fafc;
+            color: #003153;
+            padding: 0rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #003153;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+
+        .tagline {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--success-color);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background-color: var(--background-light);
+        }
+
+        .services h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .service-card p {
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Approach Section */
+        .approach {
+            padding: 5rem 0;
+            background-color: white;
+        }
+
+        .approach h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .approach-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .approach-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .approach-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .approach-item p {
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--background-light);
+        }
+
+        .about h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+        }
+
+        .about p {
+            max-width: 900px;
+            margin: 0 auto 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact > .container > p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            margin-top: 2rem;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin: 0.75rem 0;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .tagline {
+                font-size: 1.2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .nav-menu {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .services-grid,
+            .approach-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .services h2,
+            .approach h2,
+            .about h2,
+            .contact h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar .container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+    <img src="LLI Monogram Edit.png" alt="LLI Strategies Logo" style="height: 90px; width: auto;">
+</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>LLI Strategies</h1>
+            <p class="tagline">Evidence-Based Solutions for Complex Challenges</p>
+            <p class="subtitle">Historical Research | Strategic Planning | Cultural Resources | Data Analysis</p>
+            <a href="#contact" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p class="section-intro">We bring rigorous research methods and strategic thinking to help organizations navigate complex challenges at the intersection of history, culture, policy, and community development.</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📚</div>
+                    <h3>Historical Research</h3>
+                    <p>Comprehensive archival research, document analysis, and historical investigation to uncover insights that inform contemporary decision-making.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏛️</div>
+                    <h3>Historical Resources Management</h3>
+                    <p>Professional assessment, documentation, and preservation planning for historic properties, sites, and collections.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">👥</div>
+                    <h3>Public History</h3>
+                    <p>Engaging public audiences through exhibits, interpretive planning, oral history projects, and community-centered historical programming.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>Statistics & Data Analysis</h3>
+                    <p>Quantitative analysis, statistical modeling, and data-driven insights to support evidence-based strategic decisions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>Strategic Planning</h3>
+                    <p>Comprehensive organizational strategy development, scenario planning, and implementation roadmaps tailored to your mission.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🗺️</div>
+                    <h3>GIS & Spatial Analysis</h3>
+                    <p>Geographic information systems analysis, mapping services, and spatial data visualization for planning and research projects.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌍</div>
+                    <h3>Cultural Research</h3>
+                    <p>In-depth cultural landscape studies, ethnographic research, and community cultural assessments.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Cultural Resources Management</h3>
+                    <p>Section 106 compliance, cultural resource surveys, and historic preservation consulting for development projects.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🤝</div>
+                    <h3>Public-Private Partnership Consulting</h3>
+                    <p>Strategic guidance for PPP development, stakeholder engagement, and partnership structuring for public benefit.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎓</div>
+                    <h3>Education Consulting</h3>
+                    <p>Policy analysis, program evaluation, and strategic advising for educational institutions and reform initiatives.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Policy Analysis & Development</h3>
+                    <p>Evidence-based policy research, impact assessment, and recommendation development for education, urban development, and cultural preservation.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">✍️</div>
+                    <h3>Grant Writing & Program Evaluation</h3>
+                    <p>Competitive grant applications and systematic program evaluation for nonprofits, municipalities, and educational institutions.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💬</div>
+                    <h3>Community Engagement</h3>
+                    <p>Stakeholder analysis, public input facilitation, and community-centered planning processes for preservation and development projects.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📈</div>
+                    <h3>Data Visualization & Storytelling</h3>
+                    <p>Transform complex data into compelling narratives through maps, graphics, and presentations for diverse audiences.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🏰</div>
+                    <h3>Heritage Tourism Development</h3>
+                    <p>Strategic planning for sustainable heritage tourism that balances preservation goals with economic development.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📖</div>
+                    <h3>Organizational Memory & Institutional History</h3>
+                    <p>Document institutional history, preserve organizational knowledge, and extract strategic lessons for future planning.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚊</div>
+                    <h3>Transit & Urban Planning Research</h3>
+                    <p>Transit equity analysis, public transportation planning, and research on transportation's role in community development.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="approach" class="approach">
+        <div class="container">
+            <h2>Our Approach</h2>
+            <div class="approach-grid">
+                <div class="approach-item">
+                    <h3>Interdisciplinary Perspective</h3>
+                    <p>We integrate historical research, quantitative analysis, and strategic thinking to provide comprehensive solutions.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Evidence-Based</h3>
+                    <p>Every recommendation is grounded in rigorous research, data analysis, and documented best practices.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Community-Centered</h3>
+                    <p>We prioritize stakeholder engagement and ensure local voices shape planning and preservation outcomes.</p>
+                </div>
+                <div class="approach-item">
+                    <h3>Practical Implementation</h3>
+                    <p>Strategic plans that move from analysis to action with clear, achievable steps forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About LLI Strategies</h2>
+            <p>LLI Strategies brings together expertise in historical research, cultural resources, data analysis, and strategic planning to serve public agencies, nonprofit organizations, educational institutions, and private developers. Our work bridges past and present, using historical insights and rigorous analysis to inform contemporary challenges in education, preservation, urban planning, and community development.</p>
+            <p>With advanced training in American Studies, history, and quantitative methods, combined with practical experience in strategic planning and community engagement, we deliver research and consulting services that are both intellectually rigorous and immediately actionable.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <p>Ready to start your project? Contact us to discuss how LLI Strategies can help you achieve your goals.</p>
+            <div class="contact-info">
+                <p><strong>Email:</strong> <a href="mailto:contact@llistrategies.com">contact@llistrategies.com</a></p>
+                <p><strong>Phone:</strong> (317) 721-9697<p>
+                <p><strong>Location:</strong> Indianapolis, Indiana</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 LLI Strategies. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active class to navigation items on scroll
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-menu a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 100)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Add fade-in animation for service cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '0';
+                    entry.target.style.transform = 'translateY(20px)';
+                    
+                    setTimeout(() => {
+                        entry.target.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }, 100);
+                    
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
