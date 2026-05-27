@@ -1,46 +1,44 @@
+import { useState } from "react";
+
 export default function LLIStrategiesPreview() {
+  const [page, setPage] = useState("home");
+
   const heroServices = [
-    'Historical Research',
-    'Strategic Planning',
-    'GIS & Spatial Analysis',
-    'Public History',
+    "Historical & Cultural Research",
+    "Strategic Planning",
+    "GIS & Spatial Analysis",
+    "Public History",
   ];
 
-  const serviceCards = [
+  const sampleDocuments = [
     {
-      icon: '⌕',
-      title: 'Historical Research',
-      text:
-        'Archival, military, and public history research grounded in rigorous scholarship and meticulous analysis.',
+      title: "Sample Historical Report",
+      desc: "Example archival synthesis and narrative historical analysis.",
+      file: "#",
     },
     {
-      icon: '◉',
-      title: 'Strategic Consulting',
-      text:
-        'Evidence-based strategic planning and policy analysis to support nonprofits, agencies, and institutions.',
+      title: "Cultural Landscape Memo",
+      desc: "Interpretation of cultural and regional historical patterns.",
+      file: "#",
     },
     {
-      icon: '◎',
-      title: 'GIS & Data Analysis',
-      text:
-        'Spatial visualization and data-driven insights to inform decisions and strengthen project outcomes.',
+      title: "GIS Mapping Output",
+      desc: "Spatial analysis sample integrating historical datasets.",
+      file: "#",
     },
-  ];
-
-  const capabilities = [
-    'Historical & Archival Research',
-    'Military and Public History',
-    'GIS Mapping & Spatial Analysis',
-    'Strategic Planning',
-    'Educational Consulting',
   ];
 
   return (
     <div className="min-h-screen bg-[#f7f4ee] text-slate-900">
-      {/* Header */}
+
+      {/* NAV HEADER */}
       <header className="border-b border-stone-300 bg-white">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-10 py-6">
-          <div>
+
+          <div
+            className="cursor-pointer"
+            onClick={() => setPage("home")}
+          >
             <div className="font-serif text-5xl font-semibold tracking-tight text-[#11284b]">
               LLI STRATEGIES
             </div>
@@ -50,9 +48,10 @@ export default function LLIStrategiesPreview() {
           </div>
 
           <nav className="hidden items-center gap-10 text-sm font-semibold uppercase tracking-[0.15em] text-[#11284b] md:flex">
-            <a href="#services">Services</a>
-            <a href="#about">About</a>
+            <button onClick={() => setPage("home")}>Home</button>
+            <button onClick={() => setPage("research")}>Research</button>
             <a href="#contact">Contact</a>
+
             <a
               href="#contact"
               className="border border-[#c6a24d] bg-[#d3b15c] px-6 py-4 text-xs tracking-[0.15em] text-[#11284b]"
@@ -63,182 +62,191 @@ export default function LLIStrategiesPreview() {
         </div>
       </header>
 
-      {/* Hero */}
-      <section
-        className="relative overflow-hidden"
-        style={{
-          backgroundImage:
-            "linear-gradient(90deg, rgba(247,244,238,0.98) 0%, rgba(247,244,238,0.92) 42%, rgba(17,40,75,0.12) 65%, rgba(17,40,75,0.25) 100%), url('https://images.unsplash.com/photo-1578662996442-48f60103fc96?auto=format&fit=crop&w=1600&q=80')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        <div className="mx-auto grid max-w-7xl gap-12 px-10 py-24 lg:grid-cols-2 lg:items-center">
-          <div>
-            <h1 className="font-serif text-7xl font-semibold leading-[1.05] text-[#11284b]">
-              Turning Research
-              <br />
-              into Strategy.
-            </h1>
-            <div className="my-8 h-1 w-24 bg-[#c6a24d]" />
-            <p className="max-w-xl text-2xl leading-relaxed text-slate-700">
-              LLI Strategies provides historical research, strategic planning, GIS
-              analysis, and public history consulting for organizations tackling
-              complex challenges.
-            </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="bg-[#11284b] px-8 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-white"
-              >
-                Request a Consultation
-              </a>
-              <a
-                href="#services"
-                className="border border-[#c6a24d] px-8 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#b08a3c]"
-              >
-                View Services
-              </a>
-            </div>
-          </div>
+      {/* ================= HOME PAGE ================= */}
+      {page === "home" && (
+        <>
+          {/* HERO (UPGRADED IMAGE SYSTEM) */}
+          <section className="relative overflow-hidden min-h-[85vh] flex items-center">
 
-          <div className="justify-self-end rounded-sm bg-[#0f2749]/95 p-8 text-white shadow-2xl">
-            <div className="space-y-6 min-w-[320px]">
-              {heroServices.map((service, idx) => (
-                <div
-                  key={service}
-                  className={`flex items-center gap-4 ${idx < heroServices.length - 1 ? 'border-b border-white/10 pb-4' : ''}`}
-                >
-                  <span className="text-[#d3b15c]">✦</span>
-                  <span className="text-2xl">{service}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+            {/* Background image layer */}
+            <div
+              className="absolute inset-0 scale-105"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=2000&q=80')",
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                filter: "contrast(1.05) brightness(0.9)",
+              }}
+            />
 
-      {/* Services */}
-      <section id="services" className="bg-white px-10 py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-4 text-center text-sm font-semibold uppercase tracking-[0.35em] text-[#b08a3c]">
-            Core Services
-          </div>
-          <h2 className="mx-auto mb-14 max-w-5xl text-center font-serif text-6xl font-semibold leading-tight text-[#11284b]">
-            Evidence-Based Solutions for Complex Challenges
-          </h2>
+            {/* Overlay gradients (professional institutional feel) */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#f7f4ee]/95 via-[#f7f4ee]/80 to-[#11284b]/60" />
 
-          <div className="grid gap-8 md:grid-cols-3">
-            {serviceCards.map((card) => (
-              <div
-                key={card.title}
-                className="border border-stone-200 bg-white px-8 py-12 text-center shadow-sm"
-              >
-                <div className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-full bg-[#11284b] text-4xl text-white">
-                  {card.icon}
-                </div>
-                <h3 className="mb-4 font-serif text-4xl font-semibold text-[#11284b]">
-                  {card.title}
-                </h3>
-                <p className="leading-8 text-slate-600">{card.text}</p>
-                <div className="mt-8 text-sm font-semibold uppercase tracking-[0.2em] text-[#b08a3c]">
-                  Learn More →
+            <div className="relative mx-auto grid max-w-7xl gap-12 px-10 lg:grid-cols-2 lg:items-center">
+
+              <div>
+                <h1 className="font-serif text-7xl font-semibold leading-[1.05] text-[#11284b]">
+                  Turning Research
+                  <br />
+                  Into Insight.
+                </h1>
+
+                <div className="my-8 h-1 w-24 bg-[#c6a24d]" />
+
+                <p className="max-w-xl text-2xl leading-relaxed text-slate-700">
+                  Historical and cultural research, strategic planning, and GIS-informed
+                  analysis for institutions, organizations, and public history work.
+                </p>
+
+                <div className="mt-10 flex flex-wrap gap-4">
+                  <a
+                    href="#contact"
+                    className="bg-[#11284b] px-8 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-white"
+                  >
+                    Request a Consultation
+                  </a>
+
+                  <button
+                    onClick={() => setPage("research")}
+                    className="border border-[#c6a24d] px-8 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-[#b08a3c]"
+                  >
+                    View Research
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* About */}
-      <section
-        id="about"
-        className="bg-[#f7f4ee] px-10 py-24"
-      >
-        <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.1fr_1.3fr_1fr]">
-          <div
-            className="min-h-[420px] bg-cover bg-center"
-            style={{
-              backgroundImage:
-                "url('https://images.unsplash.com/photo-1508261305436-2c41f61d0d53?auto=format&fit=crop&w=900&q=80')",
-            }}
-          />
-
-          <div>
-            <div className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-[#b08a3c]">
-              About LLI Strategies
+              {/* Service stack */}
+              <div className="justify-self-end rounded-sm bg-[#0f2749]/95 p-8 text-white shadow-2xl">
+                <div className="space-y-6 min-w-[320px]">
+                  {heroServices.map((service, idx) => (
+                    <div
+                      key={service}
+                      className={`flex items-center gap-4 ${
+                        idx < heroServices.length - 1
+                          ? "border-b border-white/10 pb-4"
+                          : ""
+                      }`}
+                    >
+                      <span className="text-[#d3b15c]">✦</span>
+                      <span className="text-2xl">{service}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-            <h2 className="mb-6 font-serif text-6xl font-semibold leading-tight text-[#11284b]">
-              Interdisciplinary Expertise.
-              <br />
-              Real-World Impact.
-            </h2>
-            <p className="mb-4 text-lg leading-8 text-slate-700">
-              LLI Strategies, led by Dr. Lance Isenbarger, combines academic excellence
-              with practical experience to deliver evidence-based solutions.
-            </p>
-            <p className="mb-8 text-lg leading-8 text-slate-700">
-              With advanced training in history, philosophy, sociology, and American
-              Studies, we bring a uniquely interdisciplinary approach to every project.
-            </p>
-            <a
-              href="#contact"
-              className="inline-block bg-[#11284b] px-8 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-white"
-            >
-              Learn More About LLI
-            </a>
-          </div>
+          </section>
 
-          <div className="bg-[#0f2749] p-10 text-white shadow-xl">
-            <div className="mb-6 text-sm font-semibold uppercase tracking-[0.35em] text-[#d3b15c]">
-              Capabilities
+          {/* ABOUT (UNCHANGED STRUCTURE, ONLY POSITIONING) */}
+          <section id="about" className="bg-[#f7f4ee] px-10 py-24">
+            <div className="mx-auto max-w-7xl">
+              <div className="mb-3 text-sm font-semibold uppercase tracking-[0.35em] text-[#b08a3c]">
+                About LLI Strategies
+              </div>
+
+              <h2 className="mb-6 font-serif text-6xl font-semibold leading-tight text-[#11284b]">
+                Interdisciplinary Research Practice.
+              </h2>
+
+              <p className="mb-4 text-lg leading-8 text-slate-700">
+                LLI Strategies integrates historical research, cultural analysis, and spatial
+                methods to support institutional, public, and strategic work.
+              </p>
+
+              <p className="mb-4 text-lg leading-8 text-slate-700">
+                Based in Indianapolis, Indiana, serving clients nationwide.
+              </p>
             </div>
-            <ul className="space-y-5 text-lg">
-              {capabilities.map((item) => (
-                <li key={item} className="flex gap-3 text-slate-200">
-                  <span className="text-[#d3b15c]">✓</span>
-                  <span>{item}</span>
-                </li>
+          </section>
+
+          {/* CTA */}
+          <section id="contact" className="bg-[#d6bc72] px-10 py-24 text-center">
+            <div className="mx-auto max-w-4xl">
+              <h2 className="mb-6 font-serif text-6xl font-semibold text-[#11284b]">
+                Let’s Work Together
+              </h2>
+
+              <a
+                href="mailto:contact@llistrategies.com"
+                className="inline-block bg-[#11284b] px-10 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-white"
+              >
+                Contact LLI Strategies
+              </a>
+            </div>
+          </section>
+        </>
+      )}
+
+      {/* ================= RESEARCH PAGE ================= */}
+      {page === "research" && (
+        <section className="px-10 py-24 bg-white min-h-screen">
+
+          <div className="mx-auto max-w-6xl">
+
+            <h1 className="font-serif text-6xl font-semibold text-[#11284b] mb-4">
+              Research Archive
+            </h1>
+
+            <p className="text-lg text-slate-700 mb-12 max-w-3xl">
+              Sample documents and research outputs demonstrating historical,
+              cultural, and spatial analysis methodologies.
+            </p>
+
+            <div className="grid gap-8 md:grid-cols-3">
+
+              {sampleDocuments.map((doc) => (
+                <div
+                  key={doc.title}
+                  className="border border-stone-200 p-8 shadow-sm"
+                >
+                  <h3 className="font-serif text-2xl text-[#11284b] mb-3">
+                    {doc.title}
+                  </h3>
+
+                  <p className="text-slate-600 mb-6">
+                    {doc.desc}
+                  </p>
+
+                  <a
+                    href={doc.file}
+                    className="text-sm font-semibold uppercase tracking-[0.15em] text-[#b08a3c]"
+                  >
+                    View Document →
+                  </a>
+                </div>
               ))}
-            </ul>
+
+            </div>
+
+            <div className="mt-16 text-sm text-slate-500">
+              Documents can be replaced with PDFs, case studies, or external links
+              (Google Drive, Dropbox, GitHub files, etc.).
+            </div>
+
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
-      {/* CTA */}
-      <section
-        id="contact"
-        className="bg-[#d6bc72] px-10 py-24 text-center"
-      >
-        <div className="mx-auto max-w-4xl">
-          <h2 className="mb-6 font-serif text-6xl font-semibold text-[#11284b]">
-            Let's Work Together
-          </h2>
-          <p className="mb-10 text-xl leading-relaxed text-slate-800">
-            Whether you're a public agency, nonprofit organization, educational
-            institution, or private firm, LLI Strategies is ready to help you
-            achieve your goals.
-          </p>
-          <a
-            href="mailto:contact@llistrategies.com"
-            className="inline-block bg-[#11284b] px-10 py-4 text-sm font-semibold uppercase tracking-[0.15em] text-white"
-          >
-            Contact LLI Strategies
-          </a>
-        </div>
-      </section>
-
-      {/* Footer */}
+      {/* FOOTER */}
       <footer className="bg-[#0b1d37] px-10 py-12 text-slate-300">
         <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3 md:items-center">
-          <div>
-            <div className="font-serif text-3xl text-white">LLI STRATEGIES</div>
-            <div className="mt-1 text-xs uppercase tracking-[0.35em] text-slate-400">
-              Research • Strategy • Public History
-            </div>
+
+          <div className="font-serif text-3xl text-white">
+            LLI STRATEGIES
           </div>
-          <div className="text-center text-sm">contact@llistrategies.com</div>
-          <div className="text-right text-sm">© 2026 LLI Strategies. All rights reserved.</div>
+
+          <div className="text-center text-sm">
+            contact@llistrategies.com
+          </div>
+
+          <div className="text-right text-sm">
+            © 2026 LLI Strategies
+          </div>
+
+          <div className="col-span-3 text-center text-xs text-slate-500 mt-4">
+            Based in Indianapolis, Indiana • Serving clients nationwide
+          </div>
+
         </div>
       </footer>
     </div>
