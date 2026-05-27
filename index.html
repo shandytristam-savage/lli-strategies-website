@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -325,11 +324,14 @@
     </section>
   </div>
 
-  <!-- FOOTER -->
-  <footer class="bg-[#0b1d37] px-4 md:px-10 py-12 text-slate-300">
+ <!-- FOOTER -->
+<footer class="bg-[#0b1d37] px-4 md:px-10 py-12 text-slate-300 overflow-hidden">
 
-    <div class="mx-auto grid max-w-7xl gap-6 md:grid-cols-3 md:items-center">
+  <div class="mx-auto max-w-7xl">
 
+    <div class="flex flex-col items-center gap-6 text-center md:flex-row md:justify-between md:text-left">
+
+      <!-- LEFT -->
       <div>
         <div class="text-3xl text-white">
           LLI STRATEGIES
@@ -340,20 +342,26 @@
         </div>
       </div>
 
-      <div class="sans text-center text-sm">
+      <!-- CENTER -->
+      <div class="sans text-sm break-all md:break-normal">
         contact@llistrategies.com
       </div>
 
-      <div class="sans text-right text-sm">
+      <!-- RIGHT -->
+      <div class="sans text-sm">
         © 2026 LLI Strategies
       </div>
 
-      <div class="sans col-span-3 mt-4 text-center text-xs text-slate-500">
-        Based in Indianapolis, Indiana • Serving clients nationwide
-      </div>
-
     </div>
-  </footer>
+
+    <!-- BOTTOM LINE -->
+    <div class="sans mt-8 text-center text-xs text-slate-500 px-4">
+      Based in Indianapolis, Indiana • Serving clients nationwide
+    </div>
+
+  </div>
+
+</footer>
 
   <!-- SIMPLE PAGE ROUTING -->
   <script>
