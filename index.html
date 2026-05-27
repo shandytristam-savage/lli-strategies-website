@@ -49,20 +49,30 @@
 
   <!-- HEADER -->
   <header class="border-b border-stone-300 bg-white">
-    <div class="mx-auto flex max-w-7xl items-center justify-between px-10 py-6">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-10 py-6">
 
-      <div class="cursor-pointer" onclick="showPage('home-page')">
-        <div class="text-5xl font-semibold tracking-tight text-[#11284b]">
-          LLI STRATEGIES
-        </div>
+    <!-- LEFT -->
+    <div class="cursor-pointer" onclick="showPage('home-page')">
 
-        <div class="sans mt-1 text-xs uppercase tracking-[0.35em] text-[#b08a3c]">
-          Research • Strategy • Public History
-        </div>
+      <div class="text-5xl font-semibold tracking-tight text-[#11284b]">
+        LLI STRATEGIES
       </div>
 
-      <nav class="sans hidden md:flex items-center gap-10 text-sm font-semibold uppercase tracking-[0.15em] text-[#11284b]">
-        <button onclick="showPage('home-page')">Home</button>
+      <div class="sans mt-1 text-xs uppercase tracking-[0.35em] text-[#b08a3c]">
+        Research • Strategy • Public History
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex items-center gap-8">
+
+      <!-- NAVIGATION -->
+      <nav class="sans hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-[0.15em] text-[#11284b]">
+
+        <button onclick="showPage('home-page')">
+          Home
+        </button>
 
         <button onclick="showPage('research-page')">
           Research
@@ -72,15 +82,19 @@
           Contact
         </a>
 
-        <a
-          href="#contact"
-          class="border border-[#c6a24d] bg-[#d3b15c] px-6 py-4 text-xs tracking-[0.15em] text-[#11284b]"
-        >
-          REQUEST A CONSULTATION
-        </a>
       </nav>
+
+      <!-- LOGO -->
+      <img
+        src="LLI-Monogram-Clean.png"
+        alt="LLI Strategies Monogram"
+        class="h-16 w-auto object-contain"
+      />
+
     </div>
-  </header>
+
+  </div>
+</header>
 
   <!-- HOME PAGE -->
   <div id="home-page">
